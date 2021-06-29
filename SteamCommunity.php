@@ -363,7 +363,7 @@ class SteamCommunity
             $response = $this->cURL($url);
             if (preg_match('/<h2>Access Denied<\/h2>/', $response)) {
                 $this->apiKey = '';
-            } else if (preg_match('/<p>Key: (.*)<\/p>/', $response, $matches)) {
+            } else if (preg_match('/<p>Key|Ключ: (.*)<\/p>/', $response, $matches)) {
                 $this->apiKey = $matches[1];
             } else if ($recursionLevel < 3 && !empty($this->apiKeyDomain)) {
                 $registerUrl = 'https://steamcommunity.com/dev/registerkey';
